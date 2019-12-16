@@ -10,11 +10,12 @@ vp ="a : plus vite"
 vm ="e : moins vite"
 x ="x : stop"
 vitesse = 150
+continuer = True
 # 1 pour avancer ; 2 pour reculer; 3 gauche;4 droite
 direction = 1
 print(z,s,q,d,vp,vm,x)
 
-while True:
+while continuer:
     lettre = click.getchar()
     if lettre == "z" : 
         spytank.avance(vitesse)
@@ -54,7 +55,10 @@ while True:
         elif direction == 4 :
             spytank.droite(vitesse)
 
-    elif lettre == "-" :   
+    elif lettre == "x" :   
+        spytank.stop()
+    elif lettre == "f" :
+        continuer = False
         spytank.stop()
     
     time.sleep(1)
