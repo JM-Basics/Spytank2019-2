@@ -26,7 +26,7 @@ while True:
             vitesse = vitesse + 20
     elif lettre == "e" :
         if vitesse < 70 : 
-        vitesse = vitesse -20
+            vitesse = vitesse -20
     elif lettre == "x" :   
         spytank.stop()
     
