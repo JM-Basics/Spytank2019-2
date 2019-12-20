@@ -1,14 +1,27 @@
 import network
 import spytank
+from gtts import tts
+import os
+import dectecteur
 
 IP = "10.0.0.121"
 PORT = 1111
 vitesse = 150
 direction = 1
 etatLed = 0
+stop = False
 
 socket = network.newServerSocket()
 socket.bind((IP, PORT))
+
+threadDetecteur = dectecteur.newDetecteur(stop)
+threadDetecteur.daemon = True 
+threadDetecteur.start()
+
+text = "Initialisation du programme"
+audio = tts.gTTS(text = text, lang="fr")
+audio.save("init.mp3")
+os.system("mpg321 init.mp3")
 
 while True : 
     socket.listen(10)
