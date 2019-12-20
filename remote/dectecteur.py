@@ -13,12 +13,13 @@ class newDetecteur(Thread):
 
 
     def run(self):
-        #le code à executer durant l'opération
-        distance = spytank.litDistance()
-        if distance < 10:
-            self.stop = True
-            spytank.stop()
-            os.system("mpg321 bip.mp3")
-        else: 
-            self.stop = False
-        time.sleep(0.2)
+        while True:
+            #le code à executer durant l'opération
+            distance = spytank.litDistance()
+            if distance < 10:
+                self.stop = True
+                spytank.stop()
+                os.system("mpg321 bip.mp3")
+            else: 
+                self.stop = False
+            time.sleep(0.2)
